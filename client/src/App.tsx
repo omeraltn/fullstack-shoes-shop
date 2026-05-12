@@ -4,6 +4,9 @@ import Home from "./pages/home";
 import Login from "./pages/login";
 import Register from "./pages/register";
 import Layout from "./components/layout";
+import Detail from "./pages/detail";
+import Dashboard from "./pages/dashboard";
+import Protected from "./components/protected";
 
 const router = createBrowserRouter([
   {
@@ -19,7 +22,28 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />,
+        element: (
+          <Protected>
+            <Home />
+          </Protected>
+        ),
+      },
+      {
+        path: "/shoe/:id",
+        element: (
+          <Protected>
+            <Detail />
+          </Protected>
+        ),
+      },
+
+      {
+        path: "/shoe/dashboard",
+        element: (
+          <Protected allowedRoles={["admin"]}>
+            <Dashboard />
+          </Protected>
+        ),
       },
     ],
   },

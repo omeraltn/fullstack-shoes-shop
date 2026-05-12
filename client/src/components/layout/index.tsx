@@ -5,7 +5,7 @@ import Footer from "./footer";
 
 const Layout: FC = () => {
   return (
-    <div className="flex flex-col min-h-screen spacing">
+    <div className="flex flex-col min-h-screen spacing max-w-7xl mx-auto">
       <Header />
       <main className="flex-1">
         <Outlet />

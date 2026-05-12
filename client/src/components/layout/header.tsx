@@ -11,7 +11,7 @@ const Header: FC = () => {
       </button>
       <nav className="hidden md:flex items-center gap-5 xl:gap-10 font-semibold">
         <Link to={"/"} className="whitespace-nowrap">
-          Yeni gelenler
+          Yeni gelenler🔥
         </Link>
         <Link to={"/"}>Erkek</Link>
         <Link to={"/"}>Kadın</Link>

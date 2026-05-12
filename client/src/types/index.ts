@@ -28,3 +28,18 @@ export interface Response<T> {
   message: string;
   data: T;
 }
+
+//Product
+export interface Product {
+  name: string;
+  picture: string[];
+  description: string;
+  isNew: boolean;
+  discount: number;
+  size: string;
+  color: string;
+  gender: "men" | "woman";
+  price: number;
+  updatedAt: string;
+  id: string;
+}
