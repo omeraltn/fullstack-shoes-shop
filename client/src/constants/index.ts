@@ -32,7 +32,7 @@ export const INPUT_ARRAY = [
   { label: "Renk", name: "color", type: "text" },
   { label: "Beden", name: "size", type: "text" },
   { label: "Açıklama", name: "description", type: "text" },
-  { label: "Yeni Ürün", name: "isNew", type: "checkbox" },
+  { label: "Yeni Ürün", name: "isNew", type: "checkbox", required: false },
   {
     label: "Cinsiyet",
     name: "gender",

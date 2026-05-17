@@ -2,14 +2,16 @@ import { ArrowLeft } from "lucide-react";
 import { type FC } from "react";
 import { Link, useParams } from "react-router-dom";
 import ProductForm from "../../components/form/product-form";
-import { useGetOneProducts } from "../../service/product";
+import { useGetOneProducts, useUpdateProduct } from "../../service/product";
 import Loader from "../../components/loader";
 import Error from "../../components/error";
+import type { ProductValues } from "../../types";
 
 const Edit: FC = () => {
   const { id } = useParams<{ id: string }>();
 
   const { isLoading, error, data, refetch } = useGetOneProducts(id!);
+  const { isPending, mutate } = useUpdateProduct();
 
   if (isLoading) return <Loader />;
 
@@ -29,7 +31,13 @@ const Edit: FC = () => {
           Ürünü Düzenle
         </h1>
       </div>
-      <ProductForm data={data} />
+      <ProductForm
+        data={data}
+        isPending={isPending}
+        mutate={(data: ProductValues) =>
+          mutate({ id, data } as { id: string; data: ProductValues })
+        }
+      />
     </div>
   );
 };
