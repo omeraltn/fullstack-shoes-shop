@@ -40,4 +40,10 @@
     line-height: 0.9;
     font-size: clamp(40px, 15vw, 180px);
   }
+  .footer-button {
+    @apply bg-black p-4 rounded-lg hover:brightness-75;
+  }
+  .row {
+    @apply px-6 py-3 text-gray-900 whitespace-nowrap;
+  }
 }

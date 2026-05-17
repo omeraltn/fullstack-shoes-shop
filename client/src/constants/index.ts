@@ -24,3 +24,19 @@ export const SIZES = [
   "46",
   "47",
 ];
+
+export const INPUT_ARRAY = [
+  { label: "isim", name: "name", type: "text" },
+  { label: "Fiyat", name: "price", type: "number" },
+  { label: "İndirim", name: "discount", type: "number" },
+  { label: "Renk", name: "color", type: "text" },
+  { label: "Beden", name: "size", type: "text" },
+  { label: "Açıklama", name: "description", type: "text" },
+  { label: "Yeni Ürün", name: "isNew", type: "checkbox" },
+  {
+    label: "Cinsiyet",
+    name: "gender",
+    type: "radio",
+    options: ["men", "women", "unisex"],
+  },
+];

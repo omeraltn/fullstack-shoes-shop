@@ -1,7 +1,9 @@
 import * as yup from "yup";
 
 //regex pattern - firstname
-const nameRegex = /^[A-Za-zÇĞİÖŞÜçğıöşü\s]+$/;
+const nameRegex = /^[\p{L}\p{M}]+\.?(?:[ '\u2019.-][\p{L}\p{M}]+\.?)*$/u;
+// 38-47 aralığında birbirinden , ler ile ayrılan metini kontrol eder
+const sizeRegex = /^(?:3[8-9]|4[0-7])(?:,(?:3[8-9]|4[0-7]))*$/;
 
 export const LOGIN_SCHEMA = yup.object().shape({
   email: yup
@@ -45,4 +47,48 @@ export const REGISTER_SCHEMA = yup.object().shape({
   terms: yup
     .boolean()
     .oneOf([true], "Sözleşmeyi onaylamadan devam edemezsiniz."),
+});
+
+export const PRODUCT_SCHEMA = yup.object().shape({
+  name: yup
+    .string()
+    .trim()
+    .required("isim alanı zorunludur")
+    .min(2, "İsim en az iki karakrer olmalıdır.")
+    .max(80, "isim en fazlaa 80 karakter olabilir."),
+
+  price: yup
+    .number()
+    .required("fiyat alanı zorunludur.")
+    .moreThan(0, "fiyat sıfırdan büyük olmalıdır."),
+
+  discount: yup
+    .number()
+    .min(0, "indirim 0'dan küçük olamaz.")
+    .max(100, "indirim 100'den büyük olamaz.")
+    .default(0),
+  color: yup
+    .string()
+    .trim()
+    .required("renk alanı zorunludur.")
+    .min(2, "renk en az 2 karakter olmalıdır."),
+
+  size: yup
+    .string()
+    .trim()
+    .required("beden alanı zorunludur.")
+    .matches(sizeRegex, "sadece 38-47 aralığından değerle geçerlidir"),
+
+  description: yup
+    .string()
+    .trim()
+    .required("açıklama alanı zorunludur")
+    .min(10, "açıklama en az 10 karakter olmalıdır.")
+    .max(500, "açıklama en fazla 500 karakter olabilir."),
+
+  isNew: yup.boolean().default(false),
+  gender: yup
+    .string()
+    .required("cinsiyet alanı zorunludur.")
+    .oneOf(["men", "women", "unisex"], "geçersiz cinsiyet seçimi"),
 });

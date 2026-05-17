@@ -1,10 +1,12 @@
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import type { Response, Product } from "../types";
 import api from "./api";
+import { toast } from "react-toastify";
 
 const productService = {
   getAll: () => api.get<Response<Product[]>>("/shoes"),
   getOne: (id: string) => api.get<Response<Product>>(`/shoes/${id}`),
+  delete: (id: string) => api.delete<Response<null>>(`/shoes/${id}`),
 };
 
 export const useGetAllProducts = () =>
@@ -21,3 +23,20 @@ export const useGetOneProducts = (id: string) =>
     select: (res) => res.data.data,
     enabled: !!id,
   });
+
+export const useDeleteProduct = () => {
+  //queryClient kurulumu
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: (id: string) => productService.delete(id),
+    onSuccess: () => {
+      toast.success("Ürün kaldırıldı");
+      //cache / arayüzün güncellenmesi için getAllProducts sorgunu tekrar çalıştı
+      queryClient.invalidateQueries({ queryKey: ["products"] });
+    },
+    onError: () => toast.error("İşlem başarısız"),
+  });
+};
+
+export const useCreateProduct = () => {};

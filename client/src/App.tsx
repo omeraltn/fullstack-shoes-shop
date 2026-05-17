@@ -7,6 +7,8 @@ import Layout from "./components/layout";
 import Detail from "./pages/detail";
 import Dashboard from "./pages/dashboard";
 import Protected from "./components/protected";
+import Create from "./pages/create";
+import Edit from "./pages/edit";
 
 const router = createBrowserRouter([
   {
@@ -36,12 +38,27 @@ const router = createBrowserRouter([
           </Protected>
         ),
       },
-
       {
-        path: "/shoe/dashboard",
+        path: "/admin/dashboard",
         element: (
           <Protected allowedRoles={["admin"]}>
             <Dashboard />
+          </Protected>
+        ),
+      },
+      {
+        path: "/admin/create",
+        element: (
+          <Protected allowedRoles={["admin"]}>
+            <Create />
+          </Protected>
+        ),
+      },
+      {
+        path: "/admin/edit/:id",
+        element: (
+          <Protected allowedRoles={["admin"]}>
+            <Edit />
           </Protected>
         ),
       },
