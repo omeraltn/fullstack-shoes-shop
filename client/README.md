@@ -6,11 +6,11 @@ Ayakkabı perakendecileri için geliştirilmiş, tip güvenliği (type‑safe) y
 
 ## 🛠️ Temel Teknolojiler
 
-* **Frontend**: React 19, TypeScript, Vite, Tailwind CSS 4, TanStack **Query**, **Router**, **Form**
-* **Durum ve Veri Yönetimi**: Sunucu durumu (server‑state) için React‑Query, form doğrulamaları için Formik + Yup, HTTP istekleri için Axios
-* **Arayüz İkonları**: Lucide‑React, bildirimler için React‑Toastify
-* **Backend**: Node.js, Express, MongoDB (Mongoose), JWT & çerez (cookie) tabanlı yetkilendirme
-* **DevOps**: ESLint, Prettier, Vite geliştirici sunucusu (`npm run dev`)
+- **Frontend**: React 19, TypeScript, Vite, Tailwind CSS 4, TanStack **Query**, **Router**, **Form**
+- **Durum ve Veri Yönetimi**: Sunucu durumu (server‑state) için React‑Query, form doğrulamaları için Formik + Yup, HTTP istekleri için Axios
+- **Arayüz İkonları**: Lucide‑React, bildirimler için React‑Toastify
+- **Backend**: Node.js, Express, MongoDB (Mongoose), JWT & çerez (cookie) tabanlı yetkilendirme
+- **DevOps**: ESLint, Prettier, Vite geliştirici sunucusu (`npm run dev`)
 
 ## 🏗️ Mimariye Genel Bakış
 
@@ -31,32 +31,31 @@ api/                  ← Express REST API
 
 ## 🔐 Rol Tabanlı Kimlik Doğrulama ve Yetkilendirme
 
-* Oturum kalıcılığı için **JWT + HttpOnly çerezleri**
-* Belirteci (token) doğrulayan ve `req.user` nesnesine kullanıcının rolünü (`admin` | `customer`) atayan **orta katman (middleware)**
-* TanStack Router'daki **rota koruyucuları (route guards)** ile admin sayfalarının yalnızca `admin` rolüne kısıtlanması
-* API işleyicilerinde hassas **politika kontrolleri** (örneğin; yalnızca yöneticiler `/products` rotasına `POST/DELETE` istekleri atabilir)
+- Oturum kalıcılığı için **JWT + HttpOnly çerezleri**
+- Belirteci (token) doğrulayan ve `req.user` nesnesine kullanıcının rolünü (`admin` | `customer`) atayan **orta katman (middleware)**
+- TanStack Router'daki **rota koruyucuları (route guards)** ile admin sayfalarının yalnızca `admin` rolüne kısıtlanması
+- API işleyicilerinde hassas **politika kontrolleri** (örneğin; yalnızca yöneticiler `/products` rotasına `POST/DELETE` istekleri atabilir)
 
 ## 🛠️ Admin Paneli
 
-* Ürünler için **CRUD** işlemleri (ekleme, düzenleme, silme, görsel yükleme)
-* **Sipariş Yönetimi**: Görüntüleme, durum güncelleme, iade işlemleri
-* **Analiz Paneli**: Satış KPI'ları, stok durumu takibi (gelecekte eklenecek)
-* Aynı arayüz kütüphaneleriyle oluşturulmuştur; mutasyonlarda (veri değişikliklerinde) iyimser arayüz (optimistic UI) ve önbellek geçersiz kılma (cache invalidation) için **React‑Query**'den yararlanır.
+- Ürünler için **CRUD** işlemleri (ekleme, düzenleme, silme, görsel yükleme)
+- **Sipariş Yönetimi**: Görüntüleme, durum güncelleme, iade işlemleri
+- **Analiz Paneli**: Satış KPI'ları, stok durumu takibi (gelecekte eklenecek)
+- Aynı arayüz kütüphaneleriyle oluşturulmuştur; mutasyonlarda (veri değişikliklerinde) iyimser arayüz (optimistic UI) ve önbellek geçersiz kılma (cache invalidation) için **React‑Query**'den yararlanır.
 
 ## 👥 Kullanıcı (İstemci) Özellikleri
 
-* Sonsuz kaydırma (infinite scroll), filtreleme ve sıralama özelliklerine sahip **Ürün Kataloğu**
-* Yerel depolamada (local storage) tutulan ve ödeme anında senkronize edilen **Alışveriş Sepeti**
-* Formik + Yup doğrulaması ve sunucu taraflı sipariş oluşturma ile desteklenen **Ödeme Adımları (Checkout Flow)**
-* **Duyarlı Tasarım (Responsive)**: Mobil öncelikli (mobile‑first) arayüz sunan Tailwind sınıfları
-* Başarılı/başarısız işlemler için **Toast bildirimleri**
+- Sonsuz kaydırma (infinite scroll), filtreleme ve sıralama özelliklerine sahip **Ürün Kataloğu**
+- Yerel depolamada (local storage) tutulan ve ödeme anında senkronize edilen **Alışveriş Sepeti**
+- Formik + Yup doğrulaması ve sunucu taraflı sipariş oluşturma ile desteklenen **Ödeme Adımları (Checkout Flow)**
+- **Duyarlı Tasarım (Responsive)**: Mobil öncelikli (mobile‑first) arayüz sunan Tailwind sınıfları
+- Başarılı/başarısız işlemler için **Toast bildirimleri**
 
 ## 📦 Başlangıç
 
-
 ## Ekran Görüntüleri
 
-![](./public/login-page.png)
+![](./public/login-page.jpg)
 
 ## Gif
 
