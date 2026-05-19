@@ -51,12 +51,10 @@ api/                  ← Express REST API
 - **Duyarlı Tasarım (Responsive)**: Mobil öncelikli (mobile‑first) arayüz sunan Tailwind sınıfları
 - Başarılı/başarısız işlemler için **Toast bildirimleri**
 
-## 📦 Başlangıç
+## 📷 Ekran Görüntüleri
 
-## Ekran Görüntüleri
+![](./client/public/login-page.jpg)
 
-![](./public/login-page.jpg)
+## 🎬 Gif
 
-## Gif
-
-![](./public/register.gif)
+![](./client/public/register.gif)
